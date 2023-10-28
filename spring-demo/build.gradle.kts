@@ -9,6 +9,7 @@ plugins {
 }
 
 group = "com.ndgndg91"
+System.setProperty("user.timezone", "UTC")
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
