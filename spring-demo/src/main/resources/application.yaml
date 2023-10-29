@@ -1,1 +1,6 @@
+spring:
+  jmx:
+    enabled: false
 
+server:
+  shutdown: graceful
