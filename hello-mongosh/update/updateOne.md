@@ -1,24 +1,8 @@
-# Update 예시
+# updateOne 예시
 
 ----
+- filter 조건에 맞는 첫 번째 도큐먼트 갱신
 
-## replaceOne
-
------------
-```
-db.users.insertOne({
-"name": "남동길",
-"friends": 32,
-"enemies": 2
-})
-var ndg = db.users.findOne({"name": "남동길"});
-ndg.relationships = {"friends": ndg.friends, "enemies": ndg.enemies};
-ndg.username = ndg.name
-delete ndg.friends;
-delete ndg.enemies;
-delete ndg.name;
-db.users.replaceOne({"name": "남동길"}, ndg)
-```
 
 ## updateOne $incr
 - 원자적 갱신 연산자
