@@ -4,3 +4,15 @@ spring:
 
 server:
   shutdown: graceful
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+
