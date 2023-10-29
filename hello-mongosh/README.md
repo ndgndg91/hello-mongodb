@@ -9,8 +9,8 @@ docker exec -it ndg-mongo mongosh
 --------------------
 
 
-### [meta 예시](./meta/README.md)
-### [insert 예시](./insert/README.md)
-### [update 예시](./update/README.md)
+### [meta 예시](./meta/meat.md)
+### [insert 예시](./insert/insert.md)
+### [update 예시](./update/updateOne.md)
 ### [delete 예시](./delete/README.md)
-### [array 예시](./array/README.md)
+### [array 예시](./array/array.md)
