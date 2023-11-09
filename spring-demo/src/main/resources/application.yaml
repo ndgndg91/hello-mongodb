@@ -1,11 +1,17 @@
 spring:
   jmx:
     enabled: false
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
 
 server:
   shutdown: graceful
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
   endpoint:
     health:
       probes:
@@ -15,4 +21,3 @@ management:
       enabled: true
     livenessstate:
       enabled: true
-
