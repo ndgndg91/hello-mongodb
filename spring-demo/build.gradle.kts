@@ -26,6 +26,8 @@ repositories {
 }
 
 dependencies {
+    // logging
+    implementation("net.logstash.logback:logstash-logback-encoder:7.4")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("org.springframework.boot:spring-boot-starter-web") {
