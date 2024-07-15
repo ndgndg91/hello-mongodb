@@ -32,12 +32,12 @@ class ApplicationContextInformer(
         log.info("Max Heap Size: ${NumberFormat.getInstance().format(maxHeapSize / (1024 * 1024))} MB")
 
         log.info("Thread Pool Information")
-        val threadPoolExecutor = executor.getThreadPoolExecutor()
-        log.info("Active Threads: ${threadPoolExecutor.getActiveCount()}")
-        log.info("Total Threads: ${threadPoolExecutor.getPoolSize()}")
+        val threadPoolExecutor = executor.threadPoolExecutor
+        log.info("Active Threads: ${threadPoolExecutor.activeCount}")
+        log.info("Total Threads: ${threadPoolExecutor.poolSize}")
         log.info("Maximum Threads: ${threadPoolExecutor.maximumPoolSize}")
-        log.info("Task Count: ${threadPoolExecutor.getTaskCount()}")
-        log.info("Completed Task Count: ${threadPoolExecutor.getCompletedTaskCount()}")
+        log.info("Task Count: ${threadPoolExecutor.taskCount}")
+        log.info("Completed Task Count: ${threadPoolExecutor.completedTaskCount}")
     }
 
 }
