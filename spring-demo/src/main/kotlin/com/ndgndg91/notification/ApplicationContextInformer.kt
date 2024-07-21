@@ -1,4 +1,4 @@
-package com.ndgndg91.hellomongodb
+package com.ndgndg91.notification
 
 import org.slf4j.LoggerFactory
 import org.springframework.context.ApplicationListener

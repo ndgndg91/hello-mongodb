@@ -1,4 +1,8 @@
 spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: mongodb://root:example@localhost:27017/notification?authSource=admin
   jmx:
     enabled: false
   lifecycle:

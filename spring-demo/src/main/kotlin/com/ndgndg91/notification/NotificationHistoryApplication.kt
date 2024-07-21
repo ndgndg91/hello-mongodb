@@ -1,12 +1,12 @@
-package com.ndgndg91.hellomongodb
+package com.ndgndg91.notification
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 
 @SpringBootApplication
-class HellomongodbApplication
+class NotificationHistoryApplication
 
 fun main(args: Array<String>) {
-    runApplication<HellomongodbApplication>(*args)
+    runApplication<NotificationHistoryApplication>(*args)
 }

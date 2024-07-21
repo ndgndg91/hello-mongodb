@@ -1,5 +1,6 @@
 package com.ndgndg91.hellomongodb
 
+import com.ndgndg91.notification.NotificationHistoryApplication
 import org.springframework.boot.fromApplication
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
@@ -9,7 +10,7 @@ import org.testcontainers.containers.MongoDBContainer
 import org.testcontainers.utility.DockerImageName
 
 @TestConfiguration(proxyBeanMethods = false)
-class TestHellomongodbApplication {
+class TestNotificationHistoryApplication {
 
     @Bean
     @ServiceConnection
@@ -20,5 +21,5 @@ class TestHellomongodbApplication {
 }
 
 fun main(args: Array<String>) {
-    fromApplication<HellomongodbApplication>().with(TestHellomongodbApplication::class).run(*args)
+    fromApplication<NotificationHistoryApplication>().with(TestNotificationHistoryApplication::class).run(*args)
 }
