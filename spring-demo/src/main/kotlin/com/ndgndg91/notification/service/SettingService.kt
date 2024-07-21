@@ -1,10 +1,11 @@
 package com.ndgndg91.notification.service
 
 import com.ndgndg91.notification.controller.dto.request.CreateSettingsRequest
+import com.ndgndg91.notification.controller.dto.request.UpdateSettingsRequest
 import com.ndgndg91.notification.domain.*
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
-import java.lang.RuntimeException
+import kotlin.RuntimeException
 
 @Service
 class SettingService(
@@ -17,29 +18,18 @@ class SettingService(
     }
 
     fun save(body: CreateSettingsRequest) {
-        repository.save(Settings(
-            accountId = body.accountId,
-            general = GeneralSettings(
-                orderExecution = body.orderExecution,
-                stopOrderTrigger = body.stopOrderTrigger,
-                fiatDepositWithdraw = body.fiatDepositWithdraw,
-                cryptoDepositWithdraw = body.cryptoDepositWithdraw
-            ),
-            market = MarketSettings(
-                priceChange = body.priceChange,
-                highLowAlert = body.highLowAlert,
-                targetPriceAlert = body.targetPriceAlert
-            ),
-            events = EventSettings(
-                listingNotice = true,
-                eventAlert = body.eventAlert,
-                communityAlert = body.communityAlert
-            ),
-            doNotDisturb = DoNotDisturb(
-                enabled = body.doNotDisturb,
-                startTime = body.doNotDisturbStart,
-                endTime = body.doNotDisturbEnd
-            )
-        ))
+        if (repository.existsById(body.accountId)) {
+            throw RuntimeException()
+        }
+
+        repository.save(body.toSettings())
+    }
+
+    fun update(body: UpdateSettingsRequest) {
+        if (!repository.existsById(body.accountId)) {
+            throw RuntimeException()
+        }
+
+        repository.save(body.toSettings())
     }
 }

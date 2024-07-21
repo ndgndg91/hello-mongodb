@@ -2,7 +2,7 @@ package com.ndgndg91.notification.controller.dto.request
 
 import com.ndgndg91.notification.domain.*
 
-data class CreateSettingsRequest(
+data class UpdateSettingsRequest(
     val accountId: Long,
     val orderExecution: Boolean,
     val stopOrderTrigger: Boolean,
@@ -17,30 +17,29 @@ data class CreateSettingsRequest(
     val doNotDisturbStart: String,
     val doNotDisturbEnd: String
 ) {
-    
     fun toSettings(): Settings {
         return Settings(
-            accountId = accountId,
+            accountId = this.accountId,
             general = GeneralSettings(
-                orderExecution = orderExecution,
-                stopOrderTrigger = stopOrderTrigger,
-                fiatDepositWithdraw = fiatDepositWithdraw,
-                cryptoDepositWithdraw = cryptoDepositWithdraw
+                orderExecution = this.orderExecution,
+                stopOrderTrigger = this.stopOrderTrigger,
+                fiatDepositWithdraw = this.fiatDepositWithdraw,
+                cryptoDepositWithdraw = this.cryptoDepositWithdraw
             ),
             market = MarketSettings(
-                priceChange = priceChange,
-                highLowAlert = highLowAlert,
-                targetPriceAlert = targetPriceAlert
+                priceChange = this.priceChange,
+                highLowAlert = this.highLowAlert,
+                targetPriceAlert = this.targetPriceAlert
             ),
             events = EventSettings(
                 listingNotice = true,
-                eventAlert = eventAlert,
-                communityAlert = communityAlert
+                eventAlert = this.eventAlert,
+                communityAlert = this.communityAlert
             ),
             doNotDisturb = DoNotDisturb(
-                enabled = doNotDisturb,
-                startTime = doNotDisturbStart,
-                endTime = doNotDisturbEnd
+                enabled = this.doNotDisturb,
+                startTime = this.doNotDisturbStart,
+                endTime = this.doNotDisturbEnd
             )
         )
     }

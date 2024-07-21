@@ -1,12 +1,13 @@
 package com.ndgndg91.notification.controller
 
 import com.ndgndg91.notification.controller.dto.request.CreateSettingsRequest
+import com.ndgndg91.notification.controller.dto.request.UpdateSettingsRequest
 import com.ndgndg91.notification.controller.dto.response.SettingsResponse
 import com.ndgndg91.notification.global.dto.response.ApiResponse
 import com.ndgndg91.notification.service.SettingService
-import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URI
 
 @RestController
 class SettingsController(
@@ -22,12 +23,20 @@ class SettingsController(
     }
 
     @PostMapping("/apis/notification/settings")
-    fun saveSettings(
+    fun createSettings(
         @RequestBody body: CreateSettingsRequest
-    ): ResponseEntity<ApiResponse<SettingsResponse>> {
+    ): ResponseEntity<ApiResponse<Unit>> {
         service.save(body)
+        return ResponseEntity.created(URI.create("/apis/notification/settings"))
+            .build()
+    }
+
+    @PutMapping("/apis/notification/settings")
+    fun updateSettingS(
+        @RequestBody body: UpdateSettingsRequest
+    ): ResponseEntity<ApiResponse<Unit>> {
+        service.update(body)
         return ResponseEntity.noContent()
-            .header(HttpHeaders.LOCATION, "/apis/notification/settings")
             .build()
     }
 }
