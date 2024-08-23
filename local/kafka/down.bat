@@ -19,5 +19,5 @@ if ERRORLEVEL 1 (
     exit /b 1
 )
 
-echo Docker Compose started successfully.
+echo Docker Compose down successfully.
 pause
