@@ -7,6 +7,8 @@ spring:
     enabled: false
   lifecycle:
     timeout-per-shutdown-phase: 30s
+  kafka:
+    bootstrap-servers: localhost:9092
 
 server:
   shutdown: graceful
